@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Sign Up
+{% endblock title %}
+
+
+{% block content %}
+<section id="form"><!--form-->
+	<div class="container">
+		<div class="row">
+			
+			<div class="col-sm-4">
+				<div class="signup-form"><!--sign up form-->
+					<h2>New User Signup!</h2>
+					<form method="post">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <button type="submit">Sign Up</button>
+                    </form>
+				</div><!--/sign up form-->
+			</div>
+		</div>
+	</div>
+</section><!--
+{% endblock content %}
+    
+    

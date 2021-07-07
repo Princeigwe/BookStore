@@ -16,6 +16,6 @@ services:
         volumes: 
             - ./data/db:/var/lib/postgresql/data
         environment: 
-            - POSTGRES_DB=book_store_db
+            - POSTGRES_DB=bookstore_db
             - POSTGRES_USER=skydata
             - POSTGRES_PASSWORD=12345678
