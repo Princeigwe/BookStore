@@ -1,22 +1,21 @@
 from django.test import TestCase
+from django.urls import reverse
 from django.contrib.auth import get_user_model
 
 # Create your tests here.
 
-class CustomUserTest(TestCase):
-    def test_create_user(self):
-        User = get_user_model()
-        user = User.objects.create_user(username="will", email="will@gmail.com", password="testpass123")
-        self.assertEqual(user.username, "will")
-        self.assertEqual(user.email, "will@gmail.com")
-        self.assertFalse(user.is_staff)
-        self.assertFalse(user.is_superuser)
+# django-allauth testing
+
+class SignUpTests(TestCase):
     
-    def test_create_superuser(self):
-        User = get_user_model()
-        admin_user = User.objects.create_superuser(username="superuser", email="superuser@gmail.com", password="supertestpass123")
-        self.assertEqual(admin_user.username, 'superuser')
-        self.assertEqual(admin_user.email, 'superuser@gmail.com')
-        self.assertTrue(admin_user.is_active)
-        self.assertTrue(admin_user.is_staff)
-        self.assertTrue(admin_user.is_superuser)
+    username = "newuser"
+    email = "newuser@gmail.com"
+    
+    def setUp(self):
+        url = reverse('account_signup')
+        self.response = self.client.get(url)
+        
+        def test_signup_template(self):
+            self.assertEqual(self.response.status_code, 200)
+            self.assertTemplateUsed(self.response, 'account/signup.html')
+            self.assertContains(self.response, "Sign Up")

@@ -37,6 +37,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
+    
+    #third party apps
+    'crispy_forms',
+    'allauth',
+    'allauth.account',
     
     #local apps
     'users.apps.UsersConfig',
@@ -138,6 +144,28 @@ STATICFILES_FINDERS = [
     "django.contrib.staticfiles.finders.AppDirectoriesFinder"
 ]
 
+# django-allauth config section
+SITE_ID = 1
+
 AUTH_USER_MODEL = "users.CustomUser"
 LOGIN_REDIRECT_URL = 'home'
-LOGOUT_REDIRECT_URL = 'home'
+ACCOUNT_LOGOUT_REDIRECT_URL = 'home' ## django-allauth configuration
+
+
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend', # configuration for using django default authentication
+    'allauth.account.auth_backends.AuthenticationBackend', # configuration for django-allauth authentication
+]
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+ACCOUNT_SESSION_REMEMBER = True ## django-allauth to remember login session
+ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE = False # django-allauth to show password twice on signup form
+ACCOUNT_USERNAME_REQUIRED = False ## username required for login
+ACCOUNT_UNIQUE_EMAIL = True # django-allauth to allow unique emails for signup
+
+
+
+
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'

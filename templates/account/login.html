@@ -1,7 +1,8 @@
 {% extends 'base.html' %}
+{% load crispy_forms_tags %}
 
 
-{% block title %}Login{% endblock title %}
+{% block title %}Login | BookStore{% endblock title %}
 
 {% block content %}
 <section id="form"><!--form-->
@@ -12,7 +13,7 @@
 					<h2>Login to your account</h2>
 					<form method="post">
 						{% csrf_token %}
-						{{form.as_p}}
+						{{ form|crispy }}
 						<button type="submit">Login</button>
 					</form>
 				</div><!--/login form-->
