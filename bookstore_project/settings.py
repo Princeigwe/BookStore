@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     #local apps
     'users.apps.UsersConfig',
     'pages.apps.PagesConfig',
+    'books.apps.BooksConfig',
 ]
 
 MIDDLEWARE = [
@@ -157,7 +158,7 @@ AUTHENTICATION_BACKENDS = [
     'allauth.account.auth_backends.AuthenticationBackend', # configuration for django-allauth authentication
 ]
 
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
 ACCOUNT_SESSION_REMEMBER = True ## django-allauth to remember login session
 ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE = False # django-allauth to show password twice on signup form
@@ -165,7 +166,7 @@ ACCOUNT_USERNAME_REQUIRED = False ## username required for login
 ACCOUNT_UNIQUE_EMAIL = True # django-allauth to allow unique emails for signup
 
 
-
+DEFAULT_FROM_EMAIL = 'admin@bookstore.com' 
 
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
