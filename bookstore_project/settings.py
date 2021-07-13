@@ -149,8 +149,8 @@ STATICFILES_FINDERS = [
 SITE_ID = 1
 
 AUTH_USER_MODEL = "users.CustomUser"
-LOGIN_REDIRECT_URL = 'home'
-ACCOUNT_LOGOUT_REDIRECT_URL = 'home' ## django-allauth configuration
+LOGIN_REDIRECT_URL = 'pages:home'
+ACCOUNT_LOGOUT_REDIRECT_URL = 'pages:home' ## django-allauth configuration
 
 
 AUTHENTICATION_BACKENDS = [

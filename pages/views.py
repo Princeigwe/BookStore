@@ -3,9 +3,10 @@ from django.views.generic import TemplateView, View
 from books.models import Book, Genre
 import random
 
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 
-
+@login_required()
 def homepage(request, genre_slug=None):
     genre = None
     genres = Genre.objects.all()
