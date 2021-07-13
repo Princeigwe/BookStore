@@ -23,6 +23,6 @@ urlpatterns = [
     
     
     #local apps urls
-    path('', include('pages.urls')),
-    path('books/', include('books.urls'))
+    path('', include('pages.urls', namespace='pages')),
+    path('books/', include('books.urls', namespace='books'))
 ]

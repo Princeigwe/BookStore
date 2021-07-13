@@ -11,7 +11,7 @@ class Genre(models.Model):
         return self.name
     
     def get_absolute_url(self):
-        return reverse('homepage_with_category', args=[self.slug])
+        return reverse('pages:homepage_with_category', args=[self.slug])
 
 
 class Book(models.Model):
