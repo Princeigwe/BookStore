@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'users.apps.UsersConfig',
     'pages.apps.PagesConfig',
     'books.apps.BooksConfig',
+    'cart.apps.CartConfig',
 ]
 
 MIDDLEWARE = [
@@ -170,3 +171,6 @@ DEFAULT_FROM_EMAIL = 'admin@bookstore.com'
 
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+# cart session key
+CART_SESSION_ID = 'cart'

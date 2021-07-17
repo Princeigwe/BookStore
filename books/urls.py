@@ -1,9 +1,11 @@
 from django.urls import path
-from .views import bookStorePage
+from .views import bookStorePage, bookDetail
 
 app_name='books'
 
 urlpatterns = [
     path('books/', bookStorePage, name='bookStorePage'),
-    path('books/<slug:genre_slug>/', bookStorePage, name='bookList_by_category' )
+    path('<slug:genre_slug>/', bookStorePage, name='bookList_by_category'),
+    
+    path('book/<int:pk>/', bookDetail, name='book_detail' )
 ]
