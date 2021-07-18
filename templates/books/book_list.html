@@ -13,7 +13,7 @@
             <div class="col-sm-3">
                 <div class="left-sidebar">
                     <h2>Category</h2>
-                    <div class="panel-group category-products" id="accordian"><!--category-productsr-->
+                    <div class="panel-group category-products" id="accordian"><!--category-products-->
                         
                         
                         {% for genre in genres %}
@@ -25,7 +25,7 @@
                         {% endfor %}
                             
                         
-                    </div><!--/category-productsr-->
+                    </div><!--/category-products-->
                     
                     <div class="price-range"><!--price-range-->
                         <h2>Price Range</h2>
@@ -53,15 +53,15 @@
                             <div class="single-products">
                                 <div class="productinfo text-center">
                                     <img src="images/shop/product11.jpg" alt="">
-                                    <h2> # {{book.price}} </h2>
+                                    <h2> NGN {{book.price}} </h2>
                                     <p> {{book.title}} </p>
-                                    <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                                    <a href=" # " class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
                                 </div>
                                 <div class="product-overlay">
                                     <div class="overlay-content">
-                                        <h2> #{{book.price}} </h2>
+                                        <h2> NGN {{book.price}} </h2>
                                         <p>Easy Polo Black Edition</p>
-                                        <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                                        <a href="{{book.get_absolute_url}}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
                                     </div>
                                 </div>
                             </div>

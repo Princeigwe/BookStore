@@ -24,5 +24,6 @@ urlpatterns = [
     
     #local apps urls
     path('', include('pages.urls', namespace='pages')),
-    path('books/', include('books.urls', namespace='books'))
+    path('books/', include('books.urls', namespace='books')),
+    path('cart/', include('cart.urls', namespace='cart')),
 ]
