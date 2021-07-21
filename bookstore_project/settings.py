@@ -49,6 +49,8 @@ INSTALLED_APPS = [
     'pages.apps.PagesConfig',
     'books.apps.BooksConfig',
     'cart.apps.CartConfig',
+    'orders.apps.OrdersConfig',
+    'payments.apps.PaymentsConfig',
 ]
 
 MIDDLEWARE = [
@@ -174,3 +176,8 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 # cart session key
 CART_SESSION_ID = 'cart'
+
+
+# FLUTTERWAVE RAVE KEYS
+RAVE_PUBLIC_KEY = os.environ.get('FLUTTERWAVE_PUBLIC_TEST_KEY')
+RAVE_SECRET_KEY = os.environ.get('FLUTTERWAVE_SECRET_TEST_KEY')

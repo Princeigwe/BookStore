@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+    Payment| BookStore
+{% endblock title %}
+
+
+{% block content %}
+<form>
+    <script src="https://api.ravepay.co/flwv3-pug/getpaidx/api/flwpbf-inline.js"></script>
+    <button type="button" onClick="payWithRave()">Pay Now</button>
+</form>
+
+<script>
+    const publicKey = "{{publicKey}}";
+    const tx_ref = " {{tx_ref}} ";
+    const amount = " {{amount}} ";
+    const telephone = " {{telephone}} " ;
+
+    function payWithRave() {
+            var x = getpaidSetup({
+                PBFPubKey: publicKey,
+                customer_email: "{{customer_email}}",
+                amount: amount,
+                customer_phone: telephone,
+                currency: "NGN",
+                txref: tx_ref,
+                custom_title: "BookStore",
+                onclose: function() {},
+                callback: function(response) {
+                    var txref = response.tx.txRef;
+                    console.log("This is the response returned after a charge", response);
+                    if (
+                        response.tx.chargeResponseCode == "00" ||
+                        response.tx.chargeResponseCode == "0"
+                    ) {
+                        window.location.replace("{% url 'pages:home' %}")
+                            // redirect to a success page
+                    } else {
+                        // redirect to a failure page.
+                    }
+                    x.close();
+                }
+            });
+        }
+
+</script>
+{% endblock content %}

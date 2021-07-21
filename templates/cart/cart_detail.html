@@ -73,8 +73,8 @@
                     <ul>
                         <li>Total <span>NGN {{cart.total_price}} </span></li>
                     </ul>
-                        <a class="btn btn-default update" href=" {% url 'books:bookStorePage' %} ">Update</a>
-                        <a class="btn btn-default check_out" href="">Check Out</a>
+                        <a class="btn btn-default update" href=" {% url 'books:bookStorePage' %} ">Update Cart</a>
+                        <a class="btn btn-default check_out" href=" {% url 'orders:create_order' %} ">Check Out</a>
                 </div>
             </div>
         </div>
