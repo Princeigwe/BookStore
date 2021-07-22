@@ -1,7 +1,7 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import get_object_or_404, render, redirect, HttpResponse
 from .forms import OrderForm
 from cart.cart import Cart
-from .models import OrderItem
+from .models import OrderItem, Order
 
 ## this is a create order view.
 """when the form is filled, and validated, each item in the cart is created in the OrderItem model
@@ -19,8 +19,7 @@ def create_order(request):
                                 unitPrice=item['price'],
                                 totalPrice=item['total_price'])
             cart.clear()
-            #request.session['order_id']=order.id
-            return redirect('payments:payment_process', id=order.id) 
+            return redirect('payments:payment_process', id=order.id)
     
     else:
         form = OrderForm()

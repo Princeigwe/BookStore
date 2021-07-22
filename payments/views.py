@@ -5,27 +5,9 @@ from django.views.generic import TemplateView
 
 # Create your views here.
 
-# class PaymentPage(TemplateView):
-#     template_name = 'payments/payment_page.html'
+# class PaymentSuccess(TemplateView):
+#     template_name = "payments/payment_success.html"
     
-#     def get_context_data(self, request, **kwargs):
-#         context = super().get_context_data(**kwargs)
-#         order_id = request.session.get('order_id')
-#         order = get_object_or_404(Order, id=order_id)
-#         total_cost = order.totalPrice()
-#         tx_ref = "bKSt9302" + str(order.id)
-        
-#         context['publicKey'] = settings.RAVE_PUBLIC_KEY
-#         context['amount'] = total_cost
-#         context['customer_email'] = order.email
-#         context['tx-ref'] = tx_ref
-#         context['telephone'] = order.telephone
-#         return context
-
-
-class PaymentSuccess(TemplateView):
-    template_name = "home.html"
-
 
 
 def payment_process(request, id):
@@ -38,4 +20,28 @@ def payment_process(request, id):
     customer_email = order.email
     customer_Name = order.customer_firstname + order.customer_lastname
     tx_ref = "bKSt9302" + str(order.id)
-    return render(request,'payments/payment_page.html', {'publicKey': publicKey, 'amount': amount, 'customer_email': customer_email, 'customerName': customer_Name, 'tx_ref':tx_ref})
+    return render(
+        request,
+        'payments/payment_page.html',
+        {'publicKey': publicKey,
+        'amount': amount,
+        'customer_email': customer_email,
+        'customerName': customer_Name,
+        'tx_ref':tx_ref,
+        'id':order.id,}
+    )
+
+
+"""this dunction gets the current id from the http request, in order to mark paid as true"""
+def payment_successful(request, id):
+    
+    #id = payment_process(request,id=id)
+    order = get_object_or_404(Order, id=id)
+    order.paid = True
+    order.save()
+    return render(request, "payments/payment_success.html", {'id':id})
+
+
+# function for unsuccessful payment
+def payment_unsuccessful(request):
+    return render(request, "payments/payment_failed.html")
