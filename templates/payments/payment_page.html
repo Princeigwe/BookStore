@@ -35,7 +35,7 @@
                         response.tx.chargeResponseCode == "00" ||
                         response.tx.chargeResponseCode == "0"
                     ) {
-                        window.location.replace("{% url 'pages:home' %}")
+                        window.location.href= " {% url 'payments:payment_successful' id %} " ;
                             // redirect to a success page
                     } else {
                         // redirect to a failure page.
