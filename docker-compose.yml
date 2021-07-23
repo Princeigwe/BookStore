@@ -16,6 +16,7 @@ services:
             - 8000:8000
         depends_on: 
             - db
+            - es
     
     db:
         image: postgres
@@ -25,3 +26,10 @@ services:
             - POSTGRES_DB=bookstore_db
             - POSTGRES_USER=skydata
             - POSTGRES_PASSWORD=12345678
+    
+    es:
+        image: elasticsearch:7.8.1
+        environment: 
+            - discovery.type=single-node
+        ports: 
+            - "9200:9200"
