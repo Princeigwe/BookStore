@@ -185,3 +185,19 @@ RAVE_SECRET_KEY = os.environ.get('FLUTTERWAVE_SECRET_TEST_KEY')
 
 MEDIA_URL='/media/'
 MEDIA_ROOT=os.path.join(BASE_DIR, 'media')
+
+## ELASTICSEARCH DSL SETTING
+# ELASTICSEARCH_DSL = {
+#     'default': {
+#         'hosts': os.getenv("ELASTICSEARCH_DSL_HOSTS", 'localhost:9200')
+#     },
+# }
+
+# Haystack setting
+# HAYSTACK_CONNECTIONS = {
+#     'default': {
+#         'ENGINE': 'haystack.backends.elasticsearch2_backend.Elasticsearch2SearchEngine',
+#         'URL': 'http://127.0.0.1:9200/',
+#         'INDEX_NAME': 'haystack',
+#     },
+# }

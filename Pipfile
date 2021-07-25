@@ -9,6 +9,10 @@ psycopg2-binary = "==2.8.4"
 django-crispy-forms = "==1.8.1"
 django-allauth = "==0.41.0"
 pillow = "==6.2.1"
+django-elasticsearch-dsl = "*"
+django-haystack = {git = "https://github.com/django-haystack/django-haystack.git"}
+haystack = "*"
+django-watson = "*"
 
 [dev-packages]
 
