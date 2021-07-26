@@ -44,6 +44,8 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     
+    
+    
     #local apps
     'users.apps.UsersConfig',
     'pages.apps.PagesConfig',
@@ -51,6 +53,7 @@ INSTALLED_APPS = [
     'cart.apps.CartConfig',
     'orders.apps.OrdersConfig',
     'payments.apps.PaymentsConfig',
+    'wishlist.apps.WishlistConfig',
 ]
 
 MIDDLEWARE = [
@@ -161,7 +164,8 @@ AUTHENTICATION_BACKENDS = [
     'allauth.account.auth_backends.AuthenticationBackend', # configuration for django-allauth authentication
 ]
 
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 ACCOUNT_SESSION_REMEMBER = True ## django-allauth to remember login session
 ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE = False # django-allauth to show password twice on signup form
