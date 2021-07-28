@@ -18,3 +18,6 @@ class WishlistItem(models.Model):
     
     def __str__(self):
         return str(self.book)
+    
+    class Meta():
+        ordering = ['-date_created']

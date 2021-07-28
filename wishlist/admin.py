@@ -6,7 +6,7 @@ from  .models import Wishlist, WishlistItem
 class WishlistItemAdminInline(admin.TabularInline):
     model = WishlistItem
     list_display = ['book']
-    readonly_fields =['id', 'book', 'date_created']
+    readonly_fields =['book', 'date_created']
 
 @admin.register(Wishlist)
 class WishlistAdmin(admin.ModelAdmin):
