@@ -13,6 +13,8 @@ django-elasticsearch-dsl = "*"
 django-haystack = {git = "https://github.com/django-haystack/django-haystack.git"}
 haystack = "*"
 django-watson = "*"
+djangorestframework = "==3.11.0"
+django-utils-six = "*"
 
 [dev-packages]
 

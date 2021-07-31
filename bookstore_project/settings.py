@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'crispy_forms',
     'allauth',
     'allauth.account',
+    'rest_framework',
     
     
     
@@ -54,6 +55,7 @@ INSTALLED_APPS = [
     'orders.apps.OrdersConfig',
     'payments.apps.PaymentsConfig',
     'wishlist.apps.WishlistConfig',
+    'api.apps.ApiConfig',
 ]
 
 MIDDLEWARE = [
