@@ -43,6 +43,11 @@ INSTALLED_APPS = [
     'crispy_forms',
     'allauth',
     'allauth.account',
+    'rest_framework',
+    'rest_framework.authtoken', # rest framework for generating the token in the server
+    'dj_rest_auth', # django restframework authentication app
+    'dj_rest_auth.registration', # django restframework authentication app for registration
+    'drf_yasg', # rest app for api documentation
     
     
     
@@ -54,6 +59,7 @@ INSTALLED_APPS = [
     'orders.apps.OrdersConfig',
     'payments.apps.PaymentsConfig',
     'wishlist.apps.WishlistConfig',
+    'api.apps.ApiConfig',
 ]
 
 MIDDLEWARE = [
@@ -189,6 +195,15 @@ RAVE_SECRET_KEY = os.environ.get('FLUTTERWAVE_SECRET_TEST_KEY')
 
 MEDIA_URL='/media/'
 MEDIA_ROOT=os.path.join(BASE_DIR, 'media')
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': ['rest_framework.permissions.IsAuthenticated'],
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.TokenAuthentication'
+    ],
+}
+
 
 ## ELASTICSEARCH DSL SETTING
 # ELASTICSEARCH_DSL = {
