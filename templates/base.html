@@ -92,7 +92,8 @@
 					<div class="col-md-8 clearfix">
 						<div class="shop-menu clearfix pull-right">
 							<ul class="nav navbar-nav">
-								<li><a href=""><i class="fa fa-user"></i> Account</a></li>
+								<!-- <li><a href=""><i class="fa fa-user"></i> Account</a></li> -->
+								
 								<li><a href=" {% url 'wishlist:wishlistItems' %} "><i class="fa fa-star"></i> Wishlist</a></li>
 								
 								<li><a href=" {% url 'cart:cart_detail' %} "><i class="fa fa-shopping-cart"></i> Cart</a></li>
@@ -128,7 +129,12 @@
 							<ul class="nav navbar-nav collapse navbar-collapse">
 								<li><a href=" {% url 'books:bookStorePage' %} ">Books</a></li>
 								
-								
+								<li class="dropdown"><a href="#"><i class="fa fa-user"></i>Account</a>
+                                    <ul role="menu" class="sub-menu">
+                                        <li><a href="{% url 'account_reset_password' %}">Reset Password</a></li>
+										<li><a href=" {% url 'account_change_password' %} ">Change Password</a></li> 
+                                    </ul>
+                                </li>
 								
 								<li><a href="contact-us.html" class="active">Contact</a></li>
 							</ul>

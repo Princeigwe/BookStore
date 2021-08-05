@@ -38,10 +38,8 @@ schema_view = get_schema_view(
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    # django user 
-    path('accounts/', include('allauth.urls')),
     
-    
+    path('accounts/', include('allauth.urls')),  # django-allauth urls
     #local apps urls
     path('', include('pages.urls', namespace='pages')),
     path('books/', include('books.urls', namespace='books')),
@@ -53,9 +51,10 @@ urlpatterns = [
     
     ## 3rd party urls
     # path('search/', include('haystack.urls')),
+    
     path('api/api-auth/', include('rest_framework.urls')), ## rest_framework url
-    path('api/dj-rest-auth/', include('dj_rest_auth.urls')), ## django rest authentication urls
-    path('api/dj-rest-auth/registration/', include('dj_rest_auth.registration.urls')), # django rest registration url
+    #path('api/dj-rest-auth/', include('dj_rest_auth.urls')), ## django rest authentication urls
+    #path('api/dj-rest-auth/registration/', include('dj_rest_auth.registration.urls')), # django rest registration url
     
     path('swagger/doc/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
     path('redoc/doc/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),

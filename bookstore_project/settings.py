@@ -25,7 +25,7 @@ SECRET_KEY = os.environ.get('NEW_SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = int(os.environ.get('DEBUG', default = 0))
 
-ALLOWED_HOSTS = ['0.0.0.0']
+ALLOWED_HOSTS = ['0.0.0.0', '127.0.0.1']
 
 
 # Application definition
@@ -43,6 +43,8 @@ INSTALLED_APPS = [
     'crispy_forms',
     'allauth',
     'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.google',
     'rest_framework',
     'rest_framework.authtoken', # rest framework for generating the token in the server
     'dj_rest_auth', # django restframework authentication app
@@ -158,11 +160,12 @@ STATICFILES_FINDERS = [
 ]
 
 # django-allauth config section
-SITE_ID = 1
+SITE_ID = 2
 
 AUTH_USER_MODEL = "users.CustomUser"
 LOGIN_REDIRECT_URL = 'pages:home'
 ACCOUNT_LOGOUT_REDIRECT_URL = 'pages:home' ## django-allauth configuration
+
 
 
 AUTHENTICATION_BACKENDS = [
@@ -175,9 +178,23 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 ACCOUNT_SESSION_REMEMBER = True ## django-allauth to remember login session
 ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE = False # django-allauth to show password twice on signup form
-ACCOUNT_USERNAME_REQUIRED = False ## username required for login
+ACCOUNT_USERNAME_REQUIRED = True ## username required for signup
 ACCOUNT_UNIQUE_EMAIL = True # django-allauth to allow unique emails for signup
+ACCOUNT_EMAIL_CONFIRMATION_EXPIRE_DAYS = 2 # expiration days for email confirmation
+ACCOUNT_UNIQUE_EMAIL = True
 
+
+SOCIALACCOUNT_PROVIDERS = {
+    'google': {
+        'SCOPE': [
+            'profile',
+            'email',
+        ],
+        'AUTH_PARAMS': {
+            'access_type': 'online',
+        }
+    }
+}
 
 DEFAULT_FROM_EMAIL = 'admin@bookstore.com' 
 
