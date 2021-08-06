@@ -25,7 +25,7 @@ SECRET_KEY = os.environ.get('NEW_SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = int(os.environ.get('DEBUG', default = 0))
 
-ALLOWED_HOSTS = ['0.0.0.0', '127.0.0.1']
+ALLOWED_HOSTS = ['127.0.0.1','0.0.0.0']
 
 
 # Application definition
@@ -176,13 +176,19 @@ AUTHENTICATION_BACKENDS = [
 # EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
-ACCOUNT_SESSION_REMEMBER = True ## django-allauth to remember login session
-ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE = False # django-allauth to show password twice on signup form
+
+
+ACCOUNT_SESSION_REMEMBER = False ## django-allauth to remember login session
+ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE = True # django-allauth to show password twice on signup form
 ACCOUNT_USERNAME_REQUIRED = True ## username required for signup
 ACCOUNT_UNIQUE_EMAIL = True # django-allauth to allow unique emails for signup
 ACCOUNT_EMAIL_CONFIRMATION_EXPIRE_DAYS = 2 # expiration days for email confirmation
 ACCOUNT_UNIQUE_EMAIL = True
 
+SOCIALACCOUNT_QUERY_EMAIL = True
+
+# ACCOUNT_EMAIL_VERIFICATION="mandatory" 
+ACCOUNT_SIGNUP_REDIRECT_URL= 'account_login'
 
 SOCIALACCOUNT_PROVIDERS = {
     'google': {
