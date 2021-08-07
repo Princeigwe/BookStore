@@ -15,18 +15,18 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-ENVIRONMENT = os.environ.get('ENVIRONMENT', default='development')
+ENVIRONMENT = os.environ.get('ENVIRONMENT', default='production')
 
-# if ENVIRONMENT == 'production':
-#     SECURE_BROWSER_XSS_FILTER = True ## PROTECTS FROM CROSS SITE SCRIPTING ATTACK
-#     X_FRAME_OPTIONS='DENY' # SECURES FROM CLICKJACKING ATTACK
-#     SECURE_SSL_REDIRECT=True ## HTTPS security
-#     SECURE_HSTS_SECONDS = 3600 
-#     SECURE_HSTS_INCLUDE_SUBDOMAINS = True 
-#     SECURE_HSTS_PRELOAD = True 
-#     SECURE_CONTENT_TYPE_NOSNIFF = True 
-#     SESSION_COOKIE_SECURE=True
-#     CSRF_COOKIE_SECURE=True
+if ENVIRONMENT == 'production':
+    SECURE_BROWSER_XSS_FILTER = True ## PROTECTS FROM CROSS SITE SCRIPTING ATTACK
+    X_FRAME_OPTIONS='DENY' # SECURES FROM CLICKJACKING ATTACK
+    SECURE_SSL_REDIRECT=True ## HTTPS security
+    SECURE_HSTS_SECONDS = 3600 
+    SECURE_HSTS_INCLUDE_SUBDOMAINS = True 
+    SECURE_HSTS_PRELOAD = True 
+    SECURE_CONTENT_TYPE_NOSNIFF = True 
+    SESSION_COOKIE_SECURE=True
+    CSRF_COOKIE_SECURE=True
 
 
 # Quick-start development settings - unsuitable for production
@@ -38,8 +38,7 @@ SECRET_KEY = os.environ.get('NEW_SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = int(os.environ.get('DEBUG', default = 0))
 
-#ALLOWED_HOSTS = ['127.0.0.1','0.0.0.0',]
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['127.0.0.1','0.0.0.0',]
 
 
 # Application definition
@@ -258,14 +257,3 @@ REST_FRAMEWORK = {
 #     },
 # }
 
-
-
-SECURE_BROWSER_XSS_FILTER = True ## PROTECTS FROM CROSS SITE SCRIPTING ATTACK
-X_FRAME_OPTIONS='DENY' # SECURES FROM CLICKJACKING ATTACK
-SECURE_SSL_REDIRECT=False ## HTTPS security
-SECURE_HSTS_SECONDS = 3600 
-SECURE_HSTS_INCLUDE_SUBDOMAINS = True 
-SECURE_HSTS_PRELOAD = True 
-SECURE_CONTENT_TYPE_NOSNIFF = True 
-SESSION_COOKIE_SECURE=True
-CSRF_COOKIE_SECURE=True
