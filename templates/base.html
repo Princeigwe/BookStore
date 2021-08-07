@@ -38,8 +38,8 @@
 					<div class="col-sm-6">
 						<div class="contactinfo">
 							<ul class="nav nav-pills">
-								<li><a href=""><i class="fa fa-phone"></i> +2 95 01 88 821</a></li>
-								<li><a href=""><i class="fa fa-envelope"></i> info@domain.com</a></li>
+								<!-- <li><a href=""><i class="fa fa-phone"></i> +2 95 01 88 821</a></li>
+								<li><a href=""><i class="fa fa-envelope"></i> info@domain.com</a></li> -->
 							</ul>
 						</div>
 					</div>
@@ -65,7 +65,7 @@
 						<div class="logo pull-left">
 							<a href="index.html"><img src="images/home/logo.png" alt=""></a>
 						</div>
-						<div class="btn-group pull-right clearfix">
+						<!-- <div class="btn-group pull-right clearfix">
 							<div class="btn-group">
 								<button type="button" class="btn btn-default dropdown-toggle usa" data-toggle="dropdown">
 									USA
@@ -87,7 +87,7 @@
 									<li><a href="">Pound</a></li>
 								</ul>
 							</div>
-						</div>
+						</div> -->
 					</div>
 					<div class="col-md-8 clearfix">
 						<div class="shop-menu clearfix pull-right">
@@ -129,7 +129,13 @@
 							<ul class="nav navbar-nav collapse navbar-collapse">
 								<li><a href=" {% url 'books:bookStorePage' %} ">Books</a></li>
 								
-								<li class="dropdown"><a href="#"><i class="fa fa-user"></i>Account</a>
+								<li class="dropdown"><a href="#"><i class="fa fa-user"></i> 
+								{% if user.is_authenticated %}
+								{{user.username}}
+								{% else %}
+								Account
+								{% endif %}
+									 </a>
                                     <ul role="menu" class="sub-menu">
                                         <li><a href="{% url 'account_reset_password' %}">Reset Password</a></li>
 										<li><a href=" {% url 'account_change_password' %} ">Change Password</a></li> 
@@ -140,11 +146,11 @@
 							</ul>
 						</div>
 					</div>
-					<div class="col-sm-3">
+					<!-- <div class="col-sm-3">
 						<div class="search_box pull-right">
 							<input type="text" placeholder="Search">
 						</div>
-					</div>
+					</div> -->
 				</div>
 			</div>
 		</div><!--/header-bottom-->

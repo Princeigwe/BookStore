@@ -1,0 +1,26 @@
+version: '3'
+
+services: 
+    web:
+        build: .
+        command: python manage.py runserver 0.0.0.0:8000
+        environment: 
+            - ENVIRONMENT=development
+            - NEW_SECRET_KEY=-rn%f8dsn4qey_9-_7+3&ukru2+th&q@c@y7pn@+d3gyhcohpn
+            - DEBUG=0
+            - FLUTTERWAVE_PUBLIC_TEST_KEY=FLWPUBK_TEST-1127e42965606338d685d420b8907504-X
+            - FLUTTERWAVE_SECRET_TEST_KEY=FLWSECK_TEST-7e3f9ff0b0d6ef64ed88be500eb2d87c-X
+
+        volumes: 
+            - .:/code
+        ports: 
+            - 8000:8000
+        depends_on: 
+            - db
+    
+    db:
+        image: postgres
+        environment: 
+            - POSTGRES_DB=bookstore_db
+            - POSTGRES_USER=skydata
+            - POSTGRES_PASSWORD=12345678

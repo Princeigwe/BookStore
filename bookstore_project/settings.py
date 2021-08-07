@@ -15,6 +15,29 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+ENVIRONMENT = os.environ.get('ENVIRONMENT', default='production')
+
+# if ENVIRONMENT == 'production':
+#     SECURE_BROWSER_XSS_FILTER = True ## PROTECTS FROM CROSS SITE SCRIPTING ATTACK
+#     X_FRAME_OPTIONS='DENY' # SECURES FROM CLICKJACKING ATTACK
+#     SECURE_SSL_REDIRECT=True ## HTTPS security
+#     SECURE_HSTS_SECONDS = 3600 
+#     SECURE_HSTS_INCLUDE_SUBDOMAINS = True 
+#     SECURE_HSTS_PRELOAD = True 
+#     SECURE_CONTENT_TYPE_NOSNIFF = True 
+#     SESSION_COOKIE_SECURE=True
+#     CSRF_COOKIE_SECURE=True
+
+if ENVIRONMENT == 'production':
+    SECURE_BROWSER_XSS_FILTER = True
+    X_FRAME_OPTIONS = 'DENY'
+    SECURE_SSL_REDIRECT = True
+    SECURE_HSTS_SECONDS = 3600
+    SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+    SECURE_HSTS_PRELOAD = True
+    SECURE_CONTENT_TYPE_NOSNIFF = True
+    SESSION_COOKIE_SECURE = True # new
+    CSRF_COOKIE_SECURE = True # new
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
@@ -243,3 +266,15 @@ REST_FRAMEWORK = {
 #         'INDEX_NAME': 'haystack',
 #     },
 # }
+
+
+
+SECURE_BROWSER_XSS_FILTER = True ## PROTECTS FROM CROSS SITE SCRIPTING ATTACK
+X_FRAME_OPTIONS='DENY' # SECURES FROM CLICKJACKING ATTACK
+SECURE_SSL_REDIRECT=True ## HTTPS security
+SECURE_HSTS_SECONDS = 3600 
+SECURE_HSTS_INCLUDE_SUBDOMAINS = True 
+SECURE_HSTS_PRELOAD = True 
+SECURE_CONTENT_TYPE_NOSNIFF = True 
+SESSION_COOKIE_SECURE=True
+CSRF_COOKIE_SECURE=True
