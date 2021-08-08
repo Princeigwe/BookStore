@@ -37,7 +37,7 @@ schema_view = get_schema_view(
 )
 
 urlpatterns = [
-    path('secretarea/', admin.site.urls),
+    path('adminarea/', admin.site.urls),
     
     path('accounts/', include('allauth.urls')),  # django-allauth urls
     #local apps urls

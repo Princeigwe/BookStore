@@ -39,6 +39,7 @@
                             // redirect to a success page
                     } else {
                         // redirect to a failure page.
+                        window.location.href= " {% url 'payments:payment_unsuccessful' %} "
                     }
                     x.close();
                 }
