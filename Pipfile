@@ -18,6 +18,8 @@ django-utils-six = "*"
 dj-rest-auth = "==1.0.4"
 pyyaml = "==5.3"
 drf-yasg = "==1.17.1"
+whitenoise = "==5.0.1"
+gunicorn = "==20.0.4"
 
 [dev-packages]
 
