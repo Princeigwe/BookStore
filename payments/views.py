@@ -15,7 +15,8 @@ def payment_process(request, id):
     order = get_object_or_404(Order, id=id)
     total_cost = order.totalPrice()
     
-    publicKey = settings.RAVE_LIVE_PUBLIC_KEY
+    #publicKey = settings.RAVE_LIVE_PUBLIC_KEY
+    publicKey = 'FLWPUBK-c6df8cf511912a1fcc1f3aa87dcc5f29-X'
     amount = total_cost
     customer_email = order.email
     customer_Name = order.customer_firstname + order.customer_lastname
