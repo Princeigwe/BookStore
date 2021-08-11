@@ -44,7 +44,7 @@ SECRET_KEY = os.environ.get('NEW_SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = int(os.environ.get('DEBUG', default = 0))
 
-ALLOWED_HOSTS = ['127.0.0.1','0.0.0.0',]
+ALLOWED_HOSTS = ['127.0.0.1','0.0.0.0', 'bookstorecomm.herokuapp.com']
 
 
 # Application definition
