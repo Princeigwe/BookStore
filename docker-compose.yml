@@ -4,13 +4,14 @@ services:
     web:
         build: .
         #command: python manage.py runserver 0.0.0.0:8000
-        command: gunicorn bookstore_project.wsgi -b 0.0.0.0:8000  # using gunicorn gateway
+        #command: gunicorn bookstore_project.wsgi -b 0.0.0.0:8000 --timeout 1000 --workers=3 --threads=3 --worker-connections=1000   # using gunicorn gateway
+        command: gunicorn bookstore_project.wsgi -b 0.0.0.0:8000 --timeout 90
         environment: 
             - ENVIRONMENT=development
-            - NEW_SECRET_KEY=-rn%f8dsn4qey_9-_7+3&ukru2+th&q@c@y7pn@+d3gyhcohpn
+            - NEW_SECRET_KEY=${SECRET_KEY}
             - DEBUG=1
-            - FLUTTERWAVE_PUBLIC_TEST_KEY=FLWPUBK_TEST-1127e42965606338d685d420b8907504-X
-            - FLUTTERWAVE_SECRET_TEST_KEY=FLWSECK_TEST-7e3f9ff0b0d6ef64ed88be500eb2d87c-X
+            - FLUTTERWAVE_PUBLIC_TEST_KEY=${FLUTTERWAVE_PUBLIC_TEST_KEY}
+            - FLUTTERWAVE_SECRET_TEST_KEY=${FLUTTERWAVE_SECRET_TEST_KEY}
 
         volumes: 
             - .:/code
@@ -25,9 +26,9 @@ services:
         volumes: 
             - ./data/db:/var/lib/postgresql/data
         environment: 
-            - POSTGRES_DB=bookstore_db
-            - POSTGRES_USER=skydata
-            - POSTGRES_PASSWORD=12345678
+            - POSTGRES_DB=${DATABASE_NAME}
+            - POSTGRES_USER=${DATABASE_USER}
+            - POSTGRES_PASSWORD=${DATABASE_PASSWORD}
         
         
     
