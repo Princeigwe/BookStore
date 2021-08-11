@@ -8,8 +8,7 @@
 
 {% block content %}
 <form>
-    <!-- <script src="https://api.ravepay.co/flwv3-pug/getpaidx/api/flwpbf-inline.js"></script> -->
-    <script src="https://checkout.flutterwave.com/v3.js"></script>
+    <script src="https://api.ravepay.co/flwv3-pug/getpaidx/api/flwpbf-inline.js"></script>
     <button type="button" onClick="payWithRave()">Pay Now</button>
 </form>
 
@@ -21,7 +20,7 @@
 
     function payWithRave() {
             var x = getpaidSetup({
-                PBFPubKey: 'FLWPUBK-d4f848d48c47da8f92e7508a327a9fa1-X',
+                PBFPubKey: "{{publicKey}}",
                 customer_email: "{{customer_email}}",
                 amount: amount,
                 customer_phone: telephone,
