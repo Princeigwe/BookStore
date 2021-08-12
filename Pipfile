@@ -24,7 +24,7 @@ django-environ = "*"
 gevent = "*"
 dj-database-url = "==0.5.0"
 django-storages = {extras = ["google"], version = "*"}
-google-cloud-storage = "==1.10.0"
+django-dropbox-storage = "*"
 
 [dev-packages]
 
