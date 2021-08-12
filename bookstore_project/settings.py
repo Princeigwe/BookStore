@@ -255,7 +255,7 @@ REST_FRAMEWORK = {
     ],
 }
 
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+#STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 #DROPBOX STORAGE
 DEFAULT_FILE_STORAGE = 'django_dropbox_storage.storage.DropboxStorage'
