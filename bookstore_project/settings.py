@@ -70,7 +70,7 @@ INSTALLED_APPS = [
     'dj_rest_auth', # django restframework authentication app
     'dj_rest_auth.registration', # django restframework authentication app for registration
     'drf_yasg', # rest app for api documentation
-    'django-dropbox-storage', # django dropbox storage... forked version
+    'django_dropbox_storage', # django dropbox storage... forked version
     
     
     
@@ -258,11 +258,11 @@ REST_FRAMEWORK = {
 #STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 #DROPBOX STORAGE
-DEFAULT_FILE_STORAGE = 'django-dropbox-storage.storage.DropboxStorage'
+DEFAULT_FILE_STORAGE = 'django_dropbox_storage.storage.DropboxStorage'
 DROPBOX_CONSUMER_KEY = os.environ.get('DROPBOX_CONSUMER_KEY')
 DROPBOX_CONSUMER_SECRET = os.environ.get('DROPBOX_CONSUMER_SECRET')
 
-DEFAULT_FILE_STORAGE = 'django_dropbox_storage.storage.DropboxStorage'
+#DEFAULT_FILE_STORAGE = 'django_dropbox_storage.storage.DropboxStorage'
 DROPBOX_ACCESS_TOKEN='FQzCtiH8ufAAAAAAAAAAE9eBusK1bSXKvpF_RdjWjRM'
 DROPBOX_ROOT_FOLDER = '/Public'
 ## ELASTICSEARCH DSL SETTING
