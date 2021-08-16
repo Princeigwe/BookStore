@@ -55,7 +55,7 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    #'whitenoise.runserver_nostatic',
+    'whitenoise.runserver_nostatic',
     'django.contrib.staticfiles',
     'django.contrib.sites',
     
@@ -87,7 +87,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    #'whitenoise.middleware.WhiteNoiseMiddleware', 
+    'whitenoise.middleware.WhiteNoiseMiddleware', 
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -255,15 +255,15 @@ REST_FRAMEWORK = {
     ],
 }
 
-#STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 #DROPBOX STORAGE
 
-DEFAULT_FILE_STORAGE = 'django_dropbox_storage.storage.DropboxStorage'
-DROPBOX_ACCESS_TOKEN='FQzCtiH8ufAAAAAAAAAAE9eBusK1bSXKvpF_RdjWjRM'
-DROPBOX_CONSUMER_KEY = os.environ.get('DROPBOX_CONSUMER_KEY')
-DROPBOX_CONSUMER_SECRET = os.environ.get('DROPBOX_CONSUMER_SECRET')
-DROPBOX_ROOT_FOLDER = '/Public'
+# DEFAULT_FILE_STORAGE = 'django_dropbox_storage.storage.DropboxStorage'
+# DROPBOX_ACCESS_TOKEN=os.environ.get('DROPBOX_ACCESS_TOKEN')
+# DROPBOX_CONSUMER_KEY = os.environ.get('DROPBOX_CONSUMER_KEY')
+# DROPBOX_CONSUMER_SECRET = os.environ.get('DROPBOX_CONSUMER_SECRET')
+# DROPBOX_ROOT_FOLDER = '/Public'
 
 
 
