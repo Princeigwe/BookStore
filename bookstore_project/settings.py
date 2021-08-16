@@ -74,6 +74,7 @@ INSTALLED_APPS = [
     'dj_rest_auth.registration', # django restframework authentication app for registration
     'drf_yasg', # rest app for api documentation
     'django_dropbox_storage', # django dropbox storage... forked version
+    'storages', ## django storages
     
     
     

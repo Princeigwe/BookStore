@@ -23,6 +23,7 @@ django-environ = "*"
 gevent = "*"
 dj-database-url = "==0.5.0"
 django-dropbox-storage-fork = "*"
+django-storages = {extras = ["dropbox"], version = "*"}
 
 [dev-packages]
 
