@@ -264,37 +264,3 @@ DROPBOX_CONSUMER_KEY = 'x5713ur28dv1mkk'
 DROPBOX_CONSUMER_SECRET = '1bb2usnxqy8glax'
 
 #STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-
-#DROPBOX STORAGE
-
-# DEFAULT_FILE_STORAGE = 'django_dropbox_storage.storage.DropboxStorage'
-# DROPBOX_ACCESS_TOKEN=os.environ.get('DROPBOX_ACCESS_TOKEN')
-# DROPBOX_CONSUMER_KEY = os.environ.get('DROPBOX_CONSUMER_KEY')
-# DROPBOX_CONSUMER_SECRET = os.environ.get('DROPBOX_CONSUMER_SECRET')
-# DROPBOX_ROOT_FOLDER = '/Public'
-
-
-
-# DEFAULT_FILE_STORAGE = 'django_dropbox_storage.storage.DropboxStorage'
-# DROPBOX_CONSUMER_KEY = 'ankyfxieedhdct1'
-# DROPBOX_CONSUMER_SECRET = '6cyumci8ijnfchc'
-
-
-
-
-## ELASTICSEARCH DSL SETTING
-# ELASTICSEARCH_DSL = {
-#     'default': {
-#         'hosts': os.getenv("ELASTICSEARCH_DSL_HOSTS", 'localhost:9200')
-#     },
-# }
-
-# Haystack setting
-# HAYSTACK_CONNECTIONS = {
-#     'default': {
-#         'ENGINE': 'haystack.backends.elasticsearch2_backend.Elasticsearch2SearchEngine',
-#         'URL': 'http://127.0.0.1:9200/',
-#         'INDEX_NAME': 'haystack',
-#     },
-# }
-
