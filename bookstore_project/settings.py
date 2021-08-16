@@ -32,6 +32,9 @@ if ENVIRONMENT == 'production':
     SESSION_COOKIE_SECURE=True
     CSRF_COOKIE_SECURE=True
     SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https') ## to prevent redirects
+    
+    DEFAULT_FILE_STORAGE = 'storages.backends.dropbox.DropBoxStorage'
+    DROPBOX_OAUTH2_TOKEN= os.environ.get('DROPBOX_ACCESS_TOKEN')
 
 
 # Quick-start development settings - unsuitable for production
