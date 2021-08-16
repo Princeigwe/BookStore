@@ -41,8 +41,8 @@ if ENVIRONMENT == 'production':
 SECRET_KEY = os.environ.get('NEW_SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-#DEBUG = int(os.environ.get('DEBUG', default = 0))
-DEBUG = os.environ.get('DEBUG')
+DEBUG = int(os.environ.get('DEBUG', default = 0))
+#DEBUG = os.environ.get('DEBUG')
 
 ALLOWED_HOSTS = ['127.0.0.1','0.0.0.0', 'bookstorecomm.herokuapp.com']
 
@@ -70,7 +70,7 @@ INSTALLED_APPS = [
     'dj_rest_auth', # django restframework authentication app
     'dj_rest_auth.registration', # django restframework authentication app for registration
     'drf_yasg', # rest app for api documentation
-    #'django_dropbox_storage', # django dropbox storage... forked version
+    'django_dropbox_storage', # django dropbox storage... forked version
     
     
     
@@ -259,18 +259,18 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 #DROPBOX STORAGE
 
-#DROPBOX_CONSUMER_KEY = os.environ.get('DROPBOX_CONSUMER_KEY')
+DEFAULT_FILE_STORAGE = 'django_dropbox_storage.storage.DropboxStorage'
+DROPBOX_ACCESS_TOKEN='FQzCtiH8ufAAAAAAAAAAE9eBusK1bSXKvpF_RdjWjRM'
+DROPBOX_CONSUMER_KEY = os.environ.get('DROPBOX_CONSUMER_KEY')
+DROPBOX_CONSUMER_SECRET = os.environ.get('DROPBOX_CONSUMER_SECRET')
+DROPBOX_ROOT_FOLDER = '/Public'
 
-#DROPBOX_CONSUMER_SECRET = os.environ.get('DROPBOX_CONSUMER_SECRET')
 
 
-#DEFAULT_FILE_STORAGE = 'django_dropbox_storage.storage.DropboxStorage'
-#DROPBOX_ACCESS_TOKEN='FQzCtiH8ufAAAAAAAAAAE9eBusK1bSXKvpF_RdjWjRM'
+# DEFAULT_FILE_STORAGE = 'django_dropbox_storage.storage.DropboxStorage'
+# DROPBOX_CONSUMER_KEY = 'ankyfxieedhdct1'
+# DROPBOX_CONSUMER_SECRET = '6cyumci8ijnfchc'
 
-#DEFAULT_FILE_STORAGE = 'django_dropbox_storage.storage.DropboxStorage'
-#DROPBOX_CONSUMER_KEY = 'ankyfxieedhdct1'
-#DROPBOX_CONSUMER_SECRET = '6cyumci8ijnfchc'
-#DROPBOX_ROOT_FOLDER = '/Public'
 
 
 
