@@ -260,7 +260,7 @@ REST_FRAMEWORK = {
     ],
 }
 
-DROPBOX_CONSUMER_KEY = 'x5713ur28dv1mkk'
-DROPBOX_CONSUMER_SECRET = '1bb2usnxqy8glax'
+DROPBOX_CONSUMER_KEY = os.environ.get('DROPBOX_CONSUMER_KEY')
+DROPBOX_CONSUMER_SECRET = os.environ.get('DROPBOX_CONSUMER_SECRET')
 
 #STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
