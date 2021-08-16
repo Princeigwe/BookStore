@@ -35,6 +35,7 @@ if ENVIRONMENT == 'production':
     
     DEFAULT_FILE_STORAGE = 'storages.backends.dropbox.DropBoxStorage'
     DROPBOX_OAUTH2_TOKEN= os.environ.get('DROPBOX_ACCESS_TOKEN')
+    
 
 
 # Quick-start development settings - unsuitable for production
@@ -258,6 +259,9 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.TokenAuthentication'
     ],
 }
+
+DROPBOX_CONSUMER_KEY = 'x5713ur28dv1mkk'
+DROPBOX_CONSUMER_SECRET = '1bb2usnxqy8glax'
 
 #STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
