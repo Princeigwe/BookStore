@@ -1,2 +1,4 @@
-.env
+$ cat .gitignore
+
+*.env
 data/
