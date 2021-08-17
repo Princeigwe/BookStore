@@ -250,7 +250,7 @@ SOCIALACCOUNT_PROVIDERS = {
     }
 }
 
-DEFAULT_FROM_EMAIL = 'admin@bookstore.com' 
+DEFAULT_FROM_EMAIL = 'bstorecomm@gmail.com' 
 
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
