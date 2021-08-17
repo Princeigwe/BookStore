@@ -205,7 +205,14 @@ AUTHENTICATION_BACKENDS = [
 ]
 
 # EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
+## sendgrid settings
+EMAIL_HOST = 'smtp.sendgrid.net'
+EMAIL_HOST_USER = 'apikey'
+EMAIL_HOST_PASSWORD = os.environ.get('BOOKSTORE_SENDGRID_API')
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
 
 
 
