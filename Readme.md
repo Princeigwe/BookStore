@@ -30,13 +30,16 @@ drf-yasg = "==1.17.1"
 whitenoise = "==5.0.1"
 gunicorn = "==20.0.4"
 flutterwave payment gateway
+django-anymail
+django-storages
 
 ***
 ### Challenges faced:
 1. Marking orders as paid, by tring to get the order id
-2. As of this moment of writing, haven't added an email transaction service. I have to host it first to get a domain name.
+2. As of this moment of writing, haven't added an email transaction service. I had to host it first to get a domain name.
 3. Cart session gave little issues.
 4. Frontend pages, since I'm no frontend dev... used templates :)
+5. Difficulty with setting up dropbox storage, which was later done
 
 
 ***
