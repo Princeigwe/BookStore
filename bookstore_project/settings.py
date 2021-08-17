@@ -76,6 +76,7 @@ INSTALLED_APPS = [
     'drf_yasg', # rest app for api documentation
     'django_dropbox_storage', # django dropbox storage... forked version
     'storages', ## django storages
+    'anymail', ## django anymail
     
     
     
@@ -204,16 +205,25 @@ AUTHENTICATION_BACKENDS = [
     'allauth.account.auth_backends.AuthenticationBackend', # configuration for django-allauth authentication
 ]
 
+# # EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 # EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
-## sendgrid settings
-EMAIL_HOST = 'smtp.sendgrid.net'
-EMAIL_HOST_USER = 'apikey'
-EMAIL_HOST_PASSWORD = os.environ.get('BOOKSTORE_SENDGRID_API')
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
+# ## sendgrid settings
+# EMAIL_HOST = 'smtp.sendgrid.net'
+# EMAIL_HOST_USER = 'apikey'
+# EMAIL_HOST_PASSWORD = os.environ.get('BOOKSTORE_SENDGRID_API')
+# EMAIL_PORT = 587
+# EMAIL_USE_TLS = True
 
+
+
+## ANYMAIL CONFIGURATIONS
+ANYMAIL = {
+    "MAILJET_API_KEY": os.environ.get('MAILJET_API_KEY'),
+    "MAILJET_SECRET_KEY": os.environ.get('MAILJET_SECRET_KEY'),
+}
+
+EMAIL_BACKEND = "anymail.backends.mailjet.EmailBackend"
 
 
 ACCOUNT_SESSION_REMEMBER = False ## django-allauth to remember login session

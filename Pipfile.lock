@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "1300d8a5aba27361140e6b8c60636d77b3fac671a23c3d5e8e9359dfdd903a51"
+            "sha256": "5fc4b284eb3b914a70da540b0427aed1da9d2c88ff716d2447399b53798d9489"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -97,6 +97,14 @@
             "index": "pypi",
             "version": "==0.41.0"
         },
+        "django-anymail": {
+            "hashes": [
+                "sha256:2e8307e84f0a12f9283469017094a8246db9a0fc608ac17dd1027ee011ece986",
+                "sha256:671a338de43b8e414d48c6d16aac1df54d2f24f916e1073f9f60aef5acffaf89"
+            ],
+            "index": "pypi",
+            "version": "==8.4"
+        },
         "django-crispy-forms": {
             "hashes": [
                 "sha256:0afc0ba730f52a13c02bfbd0e1423af4577a337d73a8a0ef96f2cbbc5f345ffa",
@@ -184,7 +192,7 @@
                 "sha256:084979d21cc2955903ecc215bb40b8180207b2bcb5e52ec0ec7dd6f60affd01e",
                 "sha256:f3ab1454e646170bbc6796b8707e4bff125234391d2acc022221e1c0313becb4"
             ],
-            "markers": "python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3' and python_version < '4'",
+            "markers": "python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3' and python_version < '4.0'",
             "version": "==7.14.0"
         },
         "elasticsearch-dsl": {
@@ -643,7 +651,7 @@
                 "sha256:39fb8672126159acb139a7718dd10806104dec1e2f0f6c88aab05d17df10c8d4",
                 "sha256:f57b4c16c62fa2760b7e3d97c35b255512fb6b59a259730f36ba32ce9f8e342f"
             ],
-            "markers": "python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3, 3.4' and python_version < '4'",
+            "markers": "python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3, 3.4' and python_version < '4.0'",
             "version": "==1.26.6"
         },
         "whitenoise": {
