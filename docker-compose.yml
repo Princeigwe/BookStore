@@ -14,6 +14,9 @@ services:
             - FLUTTERWAVE_SECRET_TEST_KEY=${FLUTTERWAVE_SECRET_TEST_KEY}
             - FLUTTERWAVE_LIVE_PUBLIC_KEY=${FLUTTERWAVE_LIVE_PUBLIC_KEY}
             - FLUTTERWAVE_LIVE_SECRET_KEY=${FLUTTERWAVE_LIVE_SECRET_KEY}
+            - MEMCACHIER_SERVERS=${MEMCACHIER_SERVERS}
+            - MEMCACHIER_USERNAME=${MEMCACHIER_USERNAME}
+            - MEMCACHIER_PASSWORD=${MEMCACHIER_PASSWORD}
 
         volumes: 
             - .:/code
@@ -24,15 +27,13 @@ services:
             - es
     
     db:
-        image: postgres
+        image: postgres:13.4-alpine
         volumes: 
             - ./data/db:/var/lib/postgresql/data
         environment: 
-            - POSTGRES_DB=${DATABASE_NAME}
-            - POSTGRES_USER=${DATABASE_USER}
-            - POSTGRES_PASSWORD=${DATABASE_PASSWORD}
+            - "POSTGRES_HOST_AUTH_METHOD=trust"
         
-        
+    
     
     es:
         image: elasticsearch:7.8.1
