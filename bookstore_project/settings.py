@@ -95,14 +95,28 @@ MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware', 
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.cache.UpdateCacheMiddleware',
+    'django.middleware.cache.UpdateCacheMiddleware', # added cache middleware
     'django.middleware.common.CommonMiddleware',
-    'django.middleware.cache.FetchFromCacheMiddleware',
+    'django.middleware.cache.FetchFromCacheMiddleware', # added cache middleware
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+# cache framework settings
+
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
+        'LOCATION': os.environ.get('MEMCACHIER_SERVERS')
+    }
+}
+
+# CACHE_MIDDLEWARE_ALIAS = 'default'  # which cache alias to use
+# CACHE_MIDDLEWARE_SECONDS = '600'    # number of seconds to cache a page for (TTL)
+# CACHE_MIDDLEWARE_KEY_PREFIX = ''    # should be used if the cache is shared across multiple sites that use the same Django instance
+
 
 ROOT_URLCONF = 'bookstore_project.urls'
 
@@ -143,10 +157,6 @@ DATABASES = {
     }
 }
 
-
-CACHE_MIDDLEWARE_ALIAS = 'default'  # which cache alias to use
-CACHE_MIDDLEWARE_SECONDS = '600'    # number of seconds to cache a page for (TTL)
-CACHE_MIDDLEWARE_KEY_PREFIX = ''    # should be used if the cache is shared across multiple sites that use the same Django instance
 
 db_from_env = dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(db_from_env)
