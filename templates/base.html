@@ -137,8 +137,13 @@
 								{% endif %}
 									 </a>
                                     <ul role="menu" class="sub-menu">
-                                        <li><a href="{% url 'account_reset_password' %}">Reset Password</a></li>
-										<li><a href=" {% url 'account_change_password' %} ">Change Password</a></li> 
+                                        
+										{% if user.is_authenticated %}
+										<li><a href=" {% url 'account_change_password' %} ">Change Password</a></li>
+										{% else %}
+										<li><a href="{% url 'account_reset_password' %}">Reset Password</a></li>
+										{% endif %}
+											
                                     </ul>
                                 </li>
 								
